@@ -1,0 +1,66 @@
+{{ $sectionID := replace (lower .section.name) " " "-"  }}
+{{ if .section.id }}
+  {{ $sectionID = .section.id }}
+{{ end }}
+
+{{ $author:= site.Data.author }}
+{{ if (index site.Data site.Language.Lang).author }}
+  {{ $author = (index site.Data site.Language.Lang).author }}
+{{ end }}
+
+<div class="container anchor p-lg-5 about-section" id="{{ $sectionID }}">
+  <div class="row pt-sm-2 pt-md-4 align-self-center">
+    <!-- summary -->
+    <!-- takes up full section width if no badges/soft skills are specified -->
+    {{ if or (.softSkills) (.badges) }} <div class="col-sm-6"> {{ else }} <div class="col-sm-12"> {{ end }}
+      <h3 class="p-1">{{ .scope_title }}</h3>
+      {{ if .aim }}
+      <h5 class="p-1">
+        Aim
+      </h5>
+      <p class="p-1 text-justify">
+        {{ .aim | markdownify }}
+      </p>
+      {{ end }}
+      {{ if .scope }}
+      <h5 class="p-1">
+        Scrop and Topics
+      </h5>
+      <p class="p-1 text-justify">
+        {{ .scope | markdownify }}
+      </p>
+      {{ end }}
+      {{ if .submission }}
+      <h5 class="p-1">
+        Submission
+      </h5>
+      <h6 class="p-1">Track 1:</h6>
+      <p class="p-1 text-justify">
+        {{ .submission.track_1 | markdownify }}
+      </p>
+      <h6 class="p-1">Track 2:</h6>
+      <p class="p-1 text-justify">
+        {{ .submission.track_2 | markdownify }}
+      </p>
+      {{ end }}
+      <p class="p-1 text-justify">
+        {{ .summary | markdownify }}
+      </p>
+      <div class="text-container ml-auto">
+        <ul class="social-link d-flex">
+          {{ range .socialLinks }}
+          <li>
+            {{ if eq .name "Email" }}
+              <a href="mailto:{{ .url }}" title="{{ .name }}" target="_blank" rel="noopener"><i class="{{ .icon }}"></i></a>
+            {{ else if eq .name (i18n "phone") }}
+              <a href="tel:{{ .url }}" title="{{ .name }}" target="_blank" rel="noopener"><i class="{{ .icon }}"></i></a>
+            {{ else }}
+              <a href="{{ .url }}" title="{{ .name }}" target="_blank" rel="noopener"><i class="{{ .icon }}"></i></a>
+            {{ end }}
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
