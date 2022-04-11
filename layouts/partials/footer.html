@@ -6,6 +6,7 @@
 {{ $newsletterEnabled  := site.Params.footer.newsletter.enable  | default true }}
 {{ $credentialsEnabled := site.Params.footer.credentials.enable | default true }}
 {{ $disclaimerEnabled  := site.Params.footer.disclaimer.enable  | default false }}
+{{ $visitorTrackerEnabled  := site.Params.visitorTracker.enable  | default false }}
 
 {{/*  Keep backward compatibility for the newsletter function */}}
 {{ if site.Params.newsletter }}
@@ -163,6 +164,12 @@
               </form>
             {{ end }}
           </div>
+        {{ end }}
+        {{ if $visitorTrackerEnabled }}
+        <div class="col-md-4 col-sm-12">
+          <p>Visitor Tracker</p>
+          <a href="https://clustrmaps.com/site/1bnsc"  title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=TgTPR4xnRaN3mtZnyZemMyETGZY95TaL27Y339oGjCY&cl=ffffff" /></a>
+        </div>
         {{ end }}
       </div>
     </div>
