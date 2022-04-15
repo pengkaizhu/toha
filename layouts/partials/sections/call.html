@@ -22,6 +22,14 @@
         {{ .aim | markdownify }}
       </p>
       {{ end }}
+      {{ if .poster }}
+      <h5 class="p-1">
+        Poster
+      </h5>
+      <p class="p-1 text-justify">
+        CFP poster can be downloaded <a href="{{ .poster.url }}" title="CFP Poster" >here</a>.
+      </p>
+      {{ end }}
       {{ if .scope }}
       <h5 class="p-1">
         Scrop and Topics
