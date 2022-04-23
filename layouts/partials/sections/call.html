@@ -32,7 +32,7 @@
       {{ end }}
       {{ if .scope }}
       <h5 class="p-1">
-        Scrop and Topics
+        Scope and Topics
       </h5>
       <p class="p-1 text-justify">
         {{ .scope | markdownify }}
@@ -50,6 +50,16 @@
       <p class="p-1 text-justify">
         {{ .submission.track_2 | markdownify }}
       </p>
+      {{ end }}
+      {{ if .dates }}
+      <h5 class="p-1">
+        Important Dates
+      </h5>
+      <ul> 
+        <li>Paper Submission: {{ .dates.submission }} </li>
+        <li>Accept Notification: {{ .dates.accept }} </li>
+        <li>Camera Ready Submission: {{.dates.camera }} </li>
+      </ul>
       {{ end }}
       <p class="p-1 text-justify">
         {{ .summary | markdownify }}
