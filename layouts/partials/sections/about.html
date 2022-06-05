@@ -21,6 +21,9 @@
         {{ i18n "at"}} <a href="{{ .company.url }}" title="{{ .company.name }}" target="_blank" rel="noopener">{{ .company.name }}</a>
         {{ end }}
       </h5>
+      <h5 class="p-1">
+        {{ .date }}
+      </h5>
       {{ end }}
       <p class="p-1 text-justify">
         {{ .summary | markdownify }}
