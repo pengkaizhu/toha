@@ -28,6 +28,16 @@
       <p class="p-1 text-justify">
         {{ .summary | markdownify }}
       </p>
+      <h5 class="p-1">
+        Proceedings: <a href="{{ .proceeding.url}}" title="{{ .proceeding.name }}" target="_blank" rel="noopener">{{ .proceeding.content }}</a>
+      </h5>
+      <h5 class="p-1">
+        Related: <a href="{{ .related.url }}" title="{{ .related.name }}" target="_blank" rel="noopener">{{ .related.name }}</a>
+      </h5>
+      <p class="p-1 text-justify">
+        {{ .related.content | markdownify }}
+      </p>
+
       <div class="text-container ml-auto">
         <ul class="social-link d-flex">
           {{ range .socialLinks }}
